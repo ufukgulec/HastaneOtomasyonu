@@ -53,15 +53,14 @@
   <ItemGroup>
     <Compile Include="Abstract\IGenericRepository.cs" />
     <Compile Include="Concrete\EntityFramework\Context\HastaneContext.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\EfGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Concrete\EntityFramework\Repository\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\HastaneOtomasyonu.Entities\HastaneOtomasyonu.Entities.csproj">
       <Project>{33ada5c9-928e-4d20-a429-9d2d976a26d9}</Project>

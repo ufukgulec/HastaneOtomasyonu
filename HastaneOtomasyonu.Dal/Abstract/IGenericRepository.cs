@@ -36,7 +36,7 @@ namespace HastaneOtomasyonu.Dal.Abstract
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        void Remove(T entity);
+        bool Remove(T entity);
         /// <summary>
         /// Gelen varlığı günceller.
         /// </summary>

@@ -1,9 +1,10 @@
+using HastaneOtomasyonu.Entities.Models;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace HastaneOtomasyonu.Entities.Models
+namespace HastaneOtomasyonu.Dal.Concrete.EntityFramework.Context
 {
     public partial class HastaneContext : DbContext
     {
