@@ -44,5 +44,11 @@
     <Compile Include="GenericManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HastaneOtomasyonu.Dal\HastaneOtomasyonu.Dal.csproj">
+      <Project>{BEB157E7-94D6-48A1-8BE4-29BE3E8DA402}</Project>
+      <Name>HastaneOtomasyonu.Dal</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

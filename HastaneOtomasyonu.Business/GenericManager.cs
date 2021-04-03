@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HastaneOtomasyonu.Dal.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace HastaneOtomasyonu.Business
 {
     public class GenericManager
     {
+        
     }
 }
