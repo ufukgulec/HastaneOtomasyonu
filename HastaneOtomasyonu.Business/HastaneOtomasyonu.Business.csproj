@@ -42,12 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GenericManager.cs" />
+    <Compile Include="PatientManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HastaneOtomasyonu.Dal\HastaneOtomasyonu.Dal.csproj">
       <Project>{BEB157E7-94D6-48A1-8BE4-29BE3E8DA402}</Project>
       <Name>HastaneOtomasyonu.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HastaneOtomasyonu.Entities\HastaneOtomasyonu.Entities.csproj">
+      <Project>{33ADA5C9-928E-4D20-A429-9D2D976A26D9}</Project>
+      <Name>HastaneOtomasyonu.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
