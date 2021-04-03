@@ -33,7 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -63,6 +70,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +83,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HastaneOtomasyonu.Business\HastaneOtomasyonu.Business.csproj">
+      <Project>{9797442b-2fda-4a28-b266-1371db285f92}</Project>
+      <Name>HastaneOtomasyonu.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HastaneOtomasyonu.Dal\HastaneOtomasyonu.Dal.csproj">
+      <Project>{beb157e7-94d6-48a1-8be4-29be3e8da402}</Project>
+      <Name>HastaneOtomasyonu.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HastaneOtomasyonu.Entities\HastaneOtomasyonu.Entities.csproj">
+      <Project>{33ada5c9-928e-4d20-a429-9d2d976a26d9}</Project>
+      <Name>HastaneOtomasyonu.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
