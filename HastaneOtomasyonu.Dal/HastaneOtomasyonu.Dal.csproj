@@ -55,6 +55,7 @@
     <Compile Include="Abstract\IPatientRepository.cs" />
     <Compile Include="Concrete\EntityFramework\Context\HastaneContext.cs" />
     <Compile Include="Concrete\EntityFramework\Repository\EfGenericRepository.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\EfPatientRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
