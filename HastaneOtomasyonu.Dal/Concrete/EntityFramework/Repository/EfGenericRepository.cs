@@ -11,8 +11,7 @@ namespace HastaneOtomasyonu.Dal.Concrete.EntityFramework.Repository
 {
     public class EfGenericRepository<T> : IGenericRepository<T> where T : class
     {
-        HastaneContext _context;
-
+        public HastaneContext _context;
         public EfGenericRepository()
         {
             _context = new HastaneContext();
