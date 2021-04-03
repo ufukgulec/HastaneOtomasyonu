@@ -21,7 +21,7 @@ namespace HastaneOtomasyonu.Dal.Abstract
         /// <returns>Varlık</returns>
         T Get(int id);
         /// <summary>
-        /// Tüm liste döner.
+        /// IGenericRepository Tüm liste döner.
         /// </summary>
         /// <returns>Varlık Listesi</returns>
         List<T> GetAll();
