@@ -1,7 +1,7 @@
 ﻿
 namespace HastaneOtomasyonu.FormUI
 {
-    partial class Form1
+    partial class Home
     {
         /// <summary>
         ///Gerekli tasarımcı değişkeni.

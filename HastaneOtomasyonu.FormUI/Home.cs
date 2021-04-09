@@ -14,11 +14,11 @@ using System.Windows.Forms;
 
 namespace HastaneOtomasyonu.FormUI
 {
-    public partial class Form1 : Form
+    public partial class Home : Form
     {
         GenericManager<Patient> patientService = new GenericManager<Patient>(new EfGenericRepository<Patient>());
         PatientManager PatientManager = new PatientManager(new EfPatientRepository());
-        public Form1()
+        public Home()
         {
             InitializeComponent();
         }
