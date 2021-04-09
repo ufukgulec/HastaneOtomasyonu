@@ -151,6 +151,7 @@ namespace HastaneOtomasyonu.FormUI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Anasayfa";
             this.Load += new System.EventHandler(this.Home_Load);
             this.panel1.ResumeLayout(false);
