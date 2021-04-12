@@ -31,18 +31,18 @@ namespace HastaneOtomasyonu.FormUI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.tcNo = new System.Windows.Forms.TextBox();
-            this.parola = new System.Windows.Forms.TextBox();
-            this.giris = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.giris = new System.Windows.Forms.Button();
+            this.parola = new System.Windows.Forms.TextBox();
+            this.tcNo = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,6 +54,16 @@ namespace HastaneOtomasyonu.FormUI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 461);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(120, 120);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -77,45 +87,29 @@ namespace HastaneOtomasyonu.FormUI
             this.panel3.Size = new System.Drawing.Size(384, 461);
             this.panel3.TabIndex = 2;
             // 
-            // pictureBox1
+            // linkLabel1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(120, 120);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(6, 344);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(116, 13);
+            this.linkLabel1.TabIndex = 5;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Parolayı mı unuttunuz ?";
             // 
-            // pictureBox2
+            // button2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 33);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(384, 119);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // tcNo
-            // 
-            this.tcNo.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tcNo.Location = new System.Drawing.Point(6, 199);
-            this.tcNo.Name = "tcNo";
-            this.tcNo.Size = new System.Drawing.Size(372, 29);
-            this.tcNo.TabIndex = 1;
-            this.tcNo.Enter += new System.EventHandler(this.tcNo_Enter);
-            this.tcNo.Leave += new System.EventHandler(this.tcNo_Leave);
-            // 
-            // parola
-            // 
-            this.parola.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.parola.Location = new System.Drawing.Point(6, 234);
-            this.parola.Name = "parola";
-            this.parola.Size = new System.Drawing.Size(372, 29);
-            this.parola.TabIndex = 2;
-            this.parola.Enter += new System.EventHandler(this.parola_Enter);
-            this.parola.Leave += new System.EventHandler(this.parola_Leave);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(6, 308);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(372, 33);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Üye Ol";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // giris
             // 
@@ -130,28 +124,35 @@ namespace HastaneOtomasyonu.FormUI
             this.giris.Text = "Giriş";
             this.giris.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // parola
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(6, 308);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(372, 33);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Üye Ol";
-            this.button2.UseVisualStyleBackColor = false;
+            this.parola.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.parola.Location = new System.Drawing.Point(6, 234);
+            this.parola.Name = "parola";
+            this.parola.Size = new System.Drawing.Size(372, 29);
+            this.parola.TabIndex = 2;
+            this.parola.Enter += new System.EventHandler(this.parola_Enter);
+            this.parola.Leave += new System.EventHandler(this.parola_Leave);
             // 
-            // linkLabel1
+            // tcNo
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(6, 344);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(116, 13);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Parolayı mı unuttunuz ?";
+            this.tcNo.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tcNo.Location = new System.Drawing.Point(6, 199);
+            this.tcNo.Name = "tcNo";
+            this.tcNo.Size = new System.Drawing.Size(372, 29);
+            this.tcNo.TabIndex = 1;
+            this.tcNo.Enter += new System.EventHandler(this.tcNo_Enter);
+            this.tcNo.Leave += new System.EventHandler(this.tcNo_Leave);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 33);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(384, 119);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // Login
             // 
@@ -173,9 +174,9 @@ namespace HastaneOtomasyonu.FormUI
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
