@@ -19,14 +19,9 @@ namespace HastaneOtomasyonu.Entities.Models
 
         public string name { get; set; }
 
-        public int? hospitalid { get; set; }
-
-        [StringLength(10)]
-        public string phonenumber { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Doctor> Doctor { get; set; }
+        public virtual ICollection<Appointment> Appointment { get; set; }
 
-        public virtual Hospital Hospital { get; set; }
     }
 }

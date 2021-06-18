@@ -11,12 +11,13 @@ namespace HastaneOtomasyonu.Entities.Models
     {
         public int id { get; set; }
 
-        public int? patientid { get; set; }
+        public int patientid { get; set; }
 
-        public int? doctorid { get; set; }
+        public int doctorid { get; set; }
+        public int policlinicid { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? date { get; set; }
+        public DateTime date { get; set; }
 
         public TimeSpan? hour { get; set; }
 
@@ -26,5 +27,6 @@ namespace HastaneOtomasyonu.Entities.Models
         public virtual Doctor Doctor { get; set; }
 
         public virtual Patient Patient { get; set; }
+        public virtual Policlinic Policlinic { get; set; }
     }
 }

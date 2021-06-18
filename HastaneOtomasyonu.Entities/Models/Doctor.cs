@@ -36,11 +36,13 @@ namespace HastaneOtomasyonu.Entities.Models
         [StringLength(10)]
         public string password { get; set; }
 
-        public int? policlinicid { get; set; }
+        public int policlinicid { get; set; }
+        public int hospitalid { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Appointment> Appointment { get; set; }
 
         public virtual Policlinic Policlinic { get; set; }
+        public virtual Hospital Hospital { get; set; }
     }
 }

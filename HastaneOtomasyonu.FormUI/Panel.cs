@@ -22,7 +22,13 @@ namespace HastaneOtomasyonu.FormUI
         }
         private void Panel_Load(object sender, EventArgs e)
         {
-            #region Load
+            CityBind();
+            AppointmentBind();
+            PatientInformationBind();
+        }
+
+        private void PatientInformationBind()
+        {
             btnPatient.Text = patient.name + " " + patient.surname;
             txtisim.Text = patient.name;
             txtsoyisim.Text = patient.surname;
@@ -31,30 +37,43 @@ namespace HastaneOtomasyonu.FormUI
             txtparola.Text = patient.password;
             txttel.Text = patient.phonenumber;
             dateTimePicker1.Value = (DateTime)patient.dateofbirth;
+        }
 
+        private void AppointmentBind()
+        {
+            AppointmentManager appointmentManager = new AppointmentManager(new EfAppointmentRepository());
+
+
+            var list = appointmentManager.List();
+            foreach (var item in list)
+            {
+                string[] row = new string[] { item.Policlinic.name,
+                        item.Doctor.name,
+                        item.date.ToString("dd/MM/yyyy"),
+                        item.hour.ToString() };
+                if (item.date < DateTime.Now)
+                {
+                    dataGridView2.Rows.Add(row);
+                }
+                else
+                {
+                    dataGridView1.Rows.Add(row);
+                }
+            }
+        }
+
+        private void CityBind()
+        {
             GenericManager<City> cityManager = new GenericManager<City>(new EfGenericRepository<City>());
             foreach (var item in cityManager.GetAll().ToList())
             {
                 comboBox1.Items.Add(item.name);
             }
-            #endregion
-
         }
         private void button3_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();

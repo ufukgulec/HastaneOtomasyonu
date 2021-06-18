@@ -28,5 +28,6 @@ namespace HastaneOtomasyonu.Entities.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Policlinic> Policlinic { get; set; }
+        public virtual ICollection<Doctor> Doctor { get; set; }
     }
 }
