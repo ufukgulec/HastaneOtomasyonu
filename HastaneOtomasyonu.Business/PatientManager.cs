@@ -16,20 +16,10 @@ namespace HastaneOtomasyonu.Business
         {
             _patientRepository = patientRepository;
         }
-
-        public List<Patient> DateOfPatients(DateTime dateTime)
+        public Patient Login(string tc, string parola)
         {
-            return _patientRepository.DateOfPatients(dateTime);
-        }
-
-        public List<Patient> FemalePatients()
-        {
-            return _patientRepository.FemalePatients();
-        }
-
-        public List<Patient> MalePatients()
-        {
-            return _patientRepository.MalePatients();
+            var patient = _patientRepository.Login(tc, parola);
+            return patient;
         }
     }
 }

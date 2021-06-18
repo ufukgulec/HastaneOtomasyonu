@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,9 +38,13 @@ namespace HastaneOtomasyonu.Business
         /// Tüm liste döner.
         /// </summary>
         /// <returns>Varlık Listesi</returns>
-        public List<T> GetAll()
+        public IQueryable<T> GetAll()
         {
             return genericRepository.GetAll();
+        }
+        public IQueryable<T> GetAll(Expression <Func<T,bool>> expression)
+        {
+            return genericRepository.GetAll(expression);
         }
         /// <summary>
         /// Gelen Id'ye göre varlık siler.

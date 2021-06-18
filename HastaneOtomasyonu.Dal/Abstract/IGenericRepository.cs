@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,7 +25,13 @@ namespace HastaneOtomasyonu.Dal.Abstract
         /// IGenericRepository Tüm liste döner.
         /// </summary>
         /// <returns>Varlık Listesi</returns>
-        List<T> GetAll();
+        IQueryable<T> GetAll();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        IQueryable<T> GetAll(Expression<Func<T, bool>> expression);
         /// <summary>
         /// Gelen Id'ye göre varlık siler.
         /// </summary>

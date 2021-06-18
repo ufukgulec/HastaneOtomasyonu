@@ -123,6 +123,7 @@ namespace HastaneOtomasyonu.FormUI
             this.giris.TabIndex = 3;
             this.giris.Text = "Giriş";
             this.giris.UseVisualStyleBackColor = false;
+            this.giris.Click += new System.EventHandler(this.giris_Click);
             // 
             // parola
             // 

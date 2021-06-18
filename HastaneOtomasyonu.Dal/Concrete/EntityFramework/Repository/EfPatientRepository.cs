@@ -14,19 +14,12 @@ namespace HastaneOtomasyonu.Dal.Concrete.EntityFramework.Repository
         {
 
         }
-        public List<Patient> DateOfPatients(DateTime dateTime)
-        {
-            return _context.Patient.Where(x => x.dateofregistration == dateTime).ToList();
-        }
 
-        public List<Patient> FemalePatients()
+        public Patient Login(string tc, string parola)
         {
-            return _context.Patient.Where(x => x.gender.Contains("k")).ToList();
-        }
-
-        public List<Patient> MalePatients()
-        {
-            return _context.Patient.Where(x => x.gender.Contains("e")).ToList();
+            var patient = _context.Patient.Where(x => x.identificationnumber == tc && x.password == parola).FirstOrDefault();
+            
+            return patient;
         }
     }
 }

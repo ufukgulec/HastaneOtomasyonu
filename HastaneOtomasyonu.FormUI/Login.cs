@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HastaneOtomasyonu.Business;
+using HastaneOtomasyonu.Dal.Abstract;
+using HastaneOtomasyonu.Dal.Concrete.EntityFramework.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +15,7 @@ namespace HastaneOtomasyonu.FormUI
 {
     public partial class Login : Form
     {
+        PatientManager patientManager = new PatientManager(new EfPatientRepository());
         public Login()
         {
             InitializeComponent();
@@ -69,6 +73,25 @@ namespace HastaneOtomasyonu.FormUI
         {
             Register register = new Register();
             register.ShowDialog();
+        }
+
+        private void giris_Click(object sender, EventArgs e)
+        {
+            string TcNo = tcNo.Text;
+            string Password = parola.Text;
+            var patient = patientManager.Login(TcNo, Password);
+            if (patient != null)
+            {
+                Panel panel = new Panel()
+                {
+                    patient = patient
+                };
+                panel.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Hatalı Tc veya Şifre");
+            }
         }
     }
 }

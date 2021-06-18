@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HastaneOtomasyonu.Dal.Concrete.EntityFramework.Context;
 using System.Data.Entity.Migrations;
+using System.Linq.Expressions;
 
 namespace HastaneOtomasyonu.Dal.Concrete.EntityFramework.Repository
 {
@@ -28,9 +29,14 @@ namespace HastaneOtomasyonu.Dal.Concrete.EntityFramework.Repository
             return _context.Set<T>().Find(id);
         }
 
-        public List<T> GetAll()
+        public IQueryable<T> GetAll()
         {
-            return _context.Set<T>().AsNoTracking().ToList();
+            return _context.Set<T>().AsNoTracking();
+        }
+
+        public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
+        {
+            return _context.Set<T>().Where(expression);
         }
 
         public bool Remove(int id)

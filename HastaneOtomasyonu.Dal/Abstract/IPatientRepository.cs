@@ -9,21 +9,12 @@ namespace HastaneOtomasyonu.Dal.Abstract
 {
     public interface IPatientRepository : IGenericRepository<Patient>
     {
-        /// <summary>
-        /// Erkek hasta listesi
-        /// </summary>
-        /// <returns></returns>
-        List<Patient> MalePatients();
-        /// <summary>
-        /// Kadın hasta listesi
-        /// </summary>
-        /// <returns></returns>
-        List<Patient> FemalePatients();
-        /// <summary>
-        /// Yıla göre hasta listesi
-        /// </summary>
-        /// <param name="dateTime"></param>
-        /// <returns></returns>
-        List<Patient> DateOfPatients(DateTime dateTime);
+       /// <summary>
+       /// Kullanıcı Girişi
+       /// </summary>
+       /// <param name="tc"></param>
+       /// <param name="parola"></param>
+       /// <returns></returns>
+        Patient Login(string tc, string parola);
     }
 }
