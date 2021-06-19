@@ -73,12 +73,17 @@ namespace HastaneOtomasyonu.FormUI
         {
             Register register = new Register();
             register.ShowDialog();
+
         }
 
         private void giris_Click(object sender, EventArgs e)
         {
             string TcNo = tcNo.Text;
             string Password = parola.Text;
+            sign(TcNo, Password);
+        }
+        public void sign(string TcNo, string Password)
+        {
             var patient = patientManager.Login(TcNo, Password);
             if (patient != null)
             {
@@ -86,7 +91,9 @@ namespace HastaneOtomasyonu.FormUI
                 {
                     patient = patient
                 };
+                this.Hide();
                 panel.ShowDialog();
+
             }
             else
             {

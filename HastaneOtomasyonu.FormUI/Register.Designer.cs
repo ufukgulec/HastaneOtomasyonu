@@ -42,7 +42,6 @@ namespace HastaneOtomasyonu.FormUI
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtAdres = new System.Windows.Forms.TextBox();
             this.rbKadın = new System.Windows.Forms.RadioButton();
             this.rbErkek = new System.Windows.Forms.RadioButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -51,6 +50,7 @@ namespace HastaneOtomasyonu.FormUI
             this.txtSoyisim = new System.Windows.Forms.TextBox();
             this.txtIsım = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -90,6 +90,7 @@ namespace HastaneOtomasyonu.FormUI
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.gönder);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
@@ -98,7 +99,6 @@ namespace HastaneOtomasyonu.FormUI
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtAdres);
             this.groupBox1.Controls.Add(this.rbKadın);
             this.groupBox1.Controls.Add(this.rbErkek);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
@@ -190,17 +190,6 @@ namespace HastaneOtomasyonu.FormUI
             this.label1.TabIndex = 8;
             this.label1.Text = "İsim";
             // 
-            // txtAdres
-            // 
-            this.txtAdres.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold);
-            this.txtAdres.Location = new System.Drawing.Point(28, 197);
-            this.txtAdres.Multiline = true;
-            this.txtAdres.Name = "txtAdres";
-            this.txtAdres.Size = new System.Drawing.Size(543, 73);
-            this.txtAdres.TabIndex = 7;
-            this.txtAdres.Enter += new System.EventHandler(this.txtAdres_Enter);
-            this.txtAdres.Leave += new System.EventHandler(this.txtAdres_Leave);
-            // 
             // rbKadın
             // 
             this.rbKadın.AutoSize = true;
@@ -287,6 +276,15 @@ namespace HastaneOtomasyonu.FormUI
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(28, 197);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(543, 29);
+            this.comboBox1.TabIndex = 16;
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,7 +322,6 @@ namespace HastaneOtomasyonu.FormUI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtAdres;
         private System.Windows.Forms.RadioButton rbKadın;
         private System.Windows.Forms.RadioButton rbErkek;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -334,5 +331,6 @@ namespace HastaneOtomasyonu.FormUI
         private System.Windows.Forms.TextBox txtIsım;
         private System.Windows.Forms.Button gönder;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

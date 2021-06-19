@@ -30,7 +30,7 @@ namespace HastaneOtomasyonu.Dal.Concrete.EntityFramework.Repository
 
         public IQueryable<T> GetAll()
         {
-            return _context.Set<T>();
+            return _context.Set<T>().AsNoTracking();
         }
 
         public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)

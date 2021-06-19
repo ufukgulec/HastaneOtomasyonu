@@ -30,6 +30,7 @@ namespace HastaneOtomasyonu.FormUI
         private void button1_Click(object sender, EventArgs e)
         {
             Login login = new Login();
+            this.Hide();
             login.ShowDialog();
         }
     }

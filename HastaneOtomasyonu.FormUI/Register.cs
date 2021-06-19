@@ -16,6 +16,7 @@ namespace HastaneOtomasyonu.FormUI
     public partial class Register : Form
     {
         PatientManager PatientManager = new PatientManager(new EfPatientRepository());
+        GenericManager<City> cityManager = new GenericManager<City>(new EfGenericRepository<City>());
         public Register()
         {
             InitializeComponent();
@@ -89,23 +90,6 @@ namespace HastaneOtomasyonu.FormUI
                 txtTel.ForeColor = Color.Gray;
             }
         }
-        private void txtAdres_Enter(object sender, EventArgs e)
-        {
-            if (txtAdres.Text == "Adresiniz")
-            {
-                txtAdres.Text = "";
-                txtAdres.ForeColor = Color.Black;
-            }
-        }
-
-        private void txtAdres_Leave(object sender, EventArgs e)
-        {
-            if (txtAdres.Text == "")
-            {
-                txtAdres.Text = "Adresiniz";
-                txtAdres.ForeColor = Color.Gray;
-            }
-        }
         #endregion
 
         private void Register_Load(object sender, EventArgs e)
@@ -119,10 +103,14 @@ namespace HastaneOtomasyonu.FormUI
             txtTc.ForeColor = Color.Gray;
             txtTel.Text = "5001234567";
             txtTel.ForeColor = Color.Gray;
-            txtAdres.Text = "Adresiniz";
-            txtAdres.ForeColor = Color.Gray;
             this.ActiveControl = gönder;
             #endregion
+            var list = cityManager.GetAll().ToList();
+            foreach (var item in list)
+            {
+                comboBox1.Items.Add(item.Name);
+            }
+
         }
 
         private void gönder_Click(object sender, EventArgs e)
@@ -154,11 +142,15 @@ namespace HastaneOtomasyonu.FormUI
                     DateOfBirth = dateTimePicker1.Value,
                     Gender = gender,
                     DateOfRegistration = DateTime.Now.Date,
-                    CityId = int.Parse(txtAdres.Text),
+                    CityId = comboBox1.SelectedIndex+1,
                     Password = "mhrs" + passTc // "mhrs402734"
 
                 };
                 PatientManager.Create(patient);
+                Login login = new Login();
+                MessageBox.Show(string.Format("{0} {1} şifreniz {2}", patient.Name, patient.Surname, patient.Password));
+                login.sign(patient.IdentificationNumber, patient.Password);
+
             }
             catch (Exception err)
             {
@@ -167,5 +159,6 @@ namespace HastaneOtomasyonu.FormUI
 
             this.Close(); //Register Form Kapanır
         }
+
     }
 }

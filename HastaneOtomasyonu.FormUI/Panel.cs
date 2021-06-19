@@ -19,6 +19,8 @@ namespace HastaneOtomasyonu.FormUI
         GenericManager<Policlinic> policlinicManager = new GenericManager<Policlinic>(new EfGenericRepository<Policlinic>());
         GenericManager<Doctor> DoctorManager = new GenericManager<Doctor>(new EfGenericRepository<Doctor>());
         AppointmentManager appointmentManager = new AppointmentManager(new EfAppointmentRepository());
+        PatientManager patientManager = new PatientManager(new EfPatientRepository());
+        GenericManager<City> cityManager = new GenericManager<City>(new EfGenericRepository<City>());
         public Patient patient;//Formlar Arası Nesne Çekmek İçin Kullanılır.(Login.Form>Panel.Form)
 
         Hospital CHospital;
@@ -33,6 +35,14 @@ namespace HastaneOtomasyonu.FormUI
             CityBind();
             AppointmentBind();
             PatientInformationBind();
+            AppointmentResult();
+        }
+
+        private void AppointmentResult()
+        {
+            cmbHospital.Enabled = false;
+            cmbPoliclinic.Enabled = false;
+            cmbDoctor.Enabled = false;
         }
 
         private void PatientInformationBind()
@@ -49,14 +59,12 @@ namespace HastaneOtomasyonu.FormUI
 
         private void AppointmentBind()
         {
-            AppointmentManager appointmentManager = new AppointmentManager(new EfAppointmentRepository());
-
 
             var list = appointmentManager.List(x => x.PatientId == patient.Id);
             foreach (var item in list)
             {
                 string[] row = new string[] { item.Policlinic.Unit.Name,
-                        item.Doctor.Name,
+                        item.Doctor.Name+" "+item.Doctor.Surname,
                         item.Date.ToString("dd/MM/yyyy"),
                         item.Hour.ToString() };
                 if (item.Date < DateTime.Now)
@@ -72,11 +80,10 @@ namespace HastaneOtomasyonu.FormUI
 
         private void CityBind()
         {
-            GenericManager<City> cityManager = new GenericManager<City>(new EfGenericRepository<City>());
+
 
             foreach (var item in cityManager.GetAll().ToList())
             {
-                comboBox1.Items.Add(item.Name);
                 cmbCity.Items.Add(item.Name);
             }
         }
@@ -87,7 +94,7 @@ namespace HastaneOtomasyonu.FormUI
 
         private void cmbCity_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            cmbHospital.Enabled = true;
             int CityID = cmbCity.SelectedIndex + 1;
             HospitalBind(CityID);
         }
@@ -111,7 +118,6 @@ namespace HastaneOtomasyonu.FormUI
                 combos.Add(new ComboBoxItem(item.Name, item.Id));
             }
             ComboBoxProp(cmbHospital, combos);
-
         }
         private void ComboBoxProp(ComboBox comboBox, List<ComboBoxItem> combos)
         {
@@ -121,7 +127,7 @@ namespace HastaneOtomasyonu.FormUI
         }
         private void cmbHospital_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            cmbPoliclinic.Enabled = true;
             ComboBoxItem cbi = (ComboBoxItem)cmbHospital.SelectedItem;
             CHospital = hospitalManager.Get(cbi.Value);
 
@@ -143,6 +149,7 @@ namespace HastaneOtomasyonu.FormUI
 
         private void cmbPoliclinic_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cmbDoctor.Enabled = true;
             ComboBoxItem cbi = (ComboBoxItem)cmbPoliclinic.SelectedItem;
             CPoliclinic = policlinicManager.Get(cbi.Value);
 
@@ -187,7 +194,7 @@ namespace HastaneOtomasyonu.FormUI
         private void HoursButtons(List<Appointment> list)
         {
             panel2.Controls.Clear();
-            Button[,] buttons = new Button[4, 6];
+            Button[,] buttons = new Button[6, 4];
             int genişlik = 100;
             int yükseklik = 50;
             int top = 0;
@@ -252,7 +259,21 @@ namespace HastaneOtomasyonu.FormUI
             }
             else
             {
-                this.Close();
+
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            txtparola.Enabled = true;
+            button4.Text = "Onayla";
+            button4.BackColor = Color.Red;
+            if (button4.Text.Contains("Onayla"))
+            {
+                button4.BackColor = Color.Green;
+                patient.Password = txtparola.Text;
+                patientManager.Update(patient);
+
             }
         }
     }
