@@ -27,5 +27,6 @@ namespace HastaneOtomasyonu.Business
             set { this.value = value; }
             get { return value; }
         }
+
     }
 }

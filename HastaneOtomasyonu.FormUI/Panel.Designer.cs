@@ -66,13 +66,14 @@ namespace HastaneOtomasyonu.FormUI
             this.txtisim = new System.Windows.Forms.TextBox();
             this.txtsoyisim = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.cmbDoctor = new System.Windows.Forms.ComboBox();
+            this.cmbPoliclinic = new System.Windows.Forms.ComboBox();
+            this.cmbHospital = new System.Windows.Forms.ComboBox();
+            this.cmbCity = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnPatient = new System.Windows.Forms.Button();
-            this.cmbCity = new System.Windows.Forms.ComboBox();
-            this.cmbHospital = new System.Windows.Forms.ComboBox();
-            this.cmbPoliclinic = new System.Windows.Forms.ComboBox();
-            this.cmbDoctor = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -89,11 +90,11 @@ namespace HastaneOtomasyonu.FormUI
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(984, 173);
+            this.tabControl1.Size = new System.Drawing.Size(984, 461);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -106,7 +107,7 @@ namespace HastaneOtomasyonu.FormUI
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(976, 429);
+            this.tabPage1.Size = new System.Drawing.Size(976, 147);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Anasayfa";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -234,7 +235,6 @@ namespace HastaneOtomasyonu.FormUI
             this.button3.TabIndex = 3;
             this.button3.Text = "Ara";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox1
             // 
@@ -250,7 +250,7 @@ namespace HastaneOtomasyonu.FormUI
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(976, 429);
+            this.tabPage2.Size = new System.Drawing.Size(976, 147);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Hesap";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -276,7 +276,7 @@ namespace HastaneOtomasyonu.FormUI
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(973, 423);
+            this.panel1.Size = new System.Drawing.Size(973, 141);
             this.panel1.TabIndex = 6;
             // 
             // dateTimePicker1
@@ -433,6 +433,7 @@ namespace HastaneOtomasyonu.FormUI
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.panel2);
             this.tabPage3.Controls.Add(this.dateTimePicker2);
             this.tabPage3.Controls.Add(this.cmbDoctor);
             this.tabPage3.Controls.Add(this.cmbPoliclinic);
@@ -440,10 +441,60 @@ namespace HastaneOtomasyonu.FormUI
             this.tabPage3.Controls.Add(this.cmbCity);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(976, 147);
+            this.tabPage3.Size = new System.Drawing.Size(976, 435);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Randevu Bilgileri";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(142, 114);
+            this.dateTimePicker2.MinDate = new System.DateTime(2021, 6, 19, 0, 0, 0, 0);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(652, 20);
+            this.dateTimePicker2.TabIndex = 4;
+            this.dateTimePicker2.Visible = false;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
+            // cmbDoctor
+            // 
+            this.cmbDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbDoctor.FormattingEnabled = true;
+            this.cmbDoctor.Location = new System.Drawing.Point(142, 84);
+            this.cmbDoctor.Name = "cmbDoctor";
+            this.cmbDoctor.Size = new System.Drawing.Size(652, 24);
+            this.cmbDoctor.TabIndex = 3;
+            this.cmbDoctor.SelectedIndexChanged += new System.EventHandler(this.cmbDoctor_SelectedIndexChanged);
+            // 
+            // cmbPoliclinic
+            // 
+            this.cmbPoliclinic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbPoliclinic.FormattingEnabled = true;
+            this.cmbPoliclinic.Location = new System.Drawing.Point(142, 54);
+            this.cmbPoliclinic.Name = "cmbPoliclinic";
+            this.cmbPoliclinic.Size = new System.Drawing.Size(652, 24);
+            this.cmbPoliclinic.TabIndex = 2;
+            this.cmbPoliclinic.SelectedIndexChanged += new System.EventHandler(this.cmbPoliclinic_SelectedIndexChanged);
+            // 
+            // cmbHospital
+            // 
+            this.cmbHospital.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbHospital.FormattingEnabled = true;
+            this.cmbHospital.Location = new System.Drawing.Point(269, 24);
+            this.cmbHospital.Name = "cmbHospital";
+            this.cmbHospital.Size = new System.Drawing.Size(525, 24);
+            this.cmbHospital.TabIndex = 1;
+            this.cmbHospital.SelectedIndexChanged += new System.EventHandler(this.cmbHospital_SelectedIndexChanged);
+            // 
+            // cmbCity
+            // 
+            this.cmbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbCity.FormattingEnabled = true;
+            this.cmbCity.Location = new System.Drawing.Point(142, 24);
+            this.cmbCity.Name = "cmbCity";
+            this.cmbCity.Size = new System.Drawing.Size(121, 24);
+            this.cmbCity.TabIndex = 0;
+            this.cmbCity.SelectedIndexChanged += new System.EventHandler(this.cmbCity_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -471,55 +522,12 @@ namespace HastaneOtomasyonu.FormUI
             this.btnPatient.Text = "button2";
             this.btnPatient.UseVisualStyleBackColor = false;
             // 
-            // cmbCity
+            // panel2
             // 
-            this.cmbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cmbCity.FormattingEnabled = true;
-            this.cmbCity.Location = new System.Drawing.Point(142, 24);
-            this.cmbCity.Name = "cmbCity";
-            this.cmbCity.Size = new System.Drawing.Size(121, 24);
-            this.cmbCity.TabIndex = 0;
-            this.cmbCity.SelectedIndexChanged += new System.EventHandler(this.cmbCity_SelectedIndexChanged);
-            // 
-            // cmbHospital
-            // 
-            this.cmbHospital.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cmbHospital.FormattingEnabled = true;
-            this.cmbHospital.Location = new System.Drawing.Point(269, 24);
-            this.cmbHospital.Name = "cmbHospital";
-            this.cmbHospital.Size = new System.Drawing.Size(525, 24);
-            this.cmbHospital.TabIndex = 1;
-            this.cmbHospital.SelectedIndexChanged += new System.EventHandler(this.cmbHospital_SelectedIndexChanged);
-            // 
-            // cmbPoliclinic
-            // 
-            this.cmbPoliclinic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cmbPoliclinic.FormattingEnabled = true;
-            this.cmbPoliclinic.Location = new System.Drawing.Point(142, 54);
-            this.cmbPoliclinic.Name = "cmbPoliclinic";
-            this.cmbPoliclinic.Size = new System.Drawing.Size(652, 24);
-            this.cmbPoliclinic.TabIndex = 2;
-            this.cmbPoliclinic.SelectedIndexChanged += new System.EventHandler(this.cmbPoliclinic_SelectedIndexChanged);
-            // 
-            // cmbDoctor
-            // 
-            this.cmbDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cmbDoctor.FormattingEnabled = true;
-            this.cmbDoctor.Location = new System.Drawing.Point(142, 84);
-            this.cmbDoctor.Name = "cmbDoctor";
-            this.cmbDoctor.Size = new System.Drawing.Size(652, 24);
-            this.cmbDoctor.TabIndex = 3;
-            this.cmbDoctor.SelectedIndexChanged += new System.EventHandler(this.cmbDoctor_SelectedIndexChanged);
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(142, 114);
-            this.dateTimePicker2.MinDate = new System.DateTime(2021, 6, 19, 0, 0, 0, 0);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(652, 20);
-            this.dateTimePicker2.TabIndex = 4;
-            this.dateTimePicker2.Visible = false;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            this.panel2.Location = new System.Drawing.Point(142, 148);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(650, 250);
+            this.panel2.TabIndex = 5;
             // 
             // Panel
             // 
@@ -595,5 +603,6 @@ namespace HastaneOtomasyonu.FormUI
         private System.Windows.Forms.ComboBox cmbCity;
         private System.Windows.Forms.ComboBox cmbDoctor;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Panel panel2;
     }
 }
