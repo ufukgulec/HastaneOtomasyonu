@@ -33,6 +33,17 @@ namespace HastaneOtomasyonu.FormUI
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Poliklinik = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Doktor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Saat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -57,25 +68,20 @@ namespace HastaneOtomasyonu.FormUI
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.btnPatient = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Poliklinik = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Doktor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Saat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbCity = new System.Windows.Forms.ComboBox();
+            this.cmbHospital = new System.Windows.Forms.ComboBox();
+            this.cmbPoliclinic = new System.Windows.Forms.ComboBox();
+            this.cmbDoctor = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -83,11 +89,11 @@ namespace HastaneOtomasyonu.FormUI
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tabControl1.Location = new System.Drawing.Point(0, 6);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(984, 455);
+            this.tabControl1.Size = new System.Drawing.Size(984, 173);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -114,6 +120,102 @@ namespace HastaneOtomasyonu.FormUI
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Geçmiş Randevular";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 16);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.Size = new System.Drawing.Size(392, 233);
+            this.dataGridView2.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Poliklinik";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Doktor";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Tarih";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Saat";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Location = new System.Drawing.Point(125, 73);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(359, 252);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Aktif Randevular";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Poliklinik,
+            this.Doktor,
+            this.Tarih,
+            this.Saat});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(353, 233);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // Poliklinik
+            // 
+            this.Poliklinik.HeaderText = "Poliklinik";
+            this.Poliklinik.Name = "Poliklinik";
+            this.Poliklinik.ReadOnly = true;
+            // 
+            // Doktor
+            // 
+            this.Doktor.HeaderText = "Doktor";
+            this.Doktor.Name = "Doktor";
+            this.Doktor.ReadOnly = true;
+            // 
+            // Tarih
+            // 
+            this.Tarih.HeaderText = "Tarih";
+            this.Tarih.Name = "Tarih";
+            this.Tarih.ReadOnly = true;
+            // 
+            // Saat
+            // 
+            this.Saat.HeaderText = "Saat";
+            this.Saat.Name = "Saat";
+            this.Saat.ReadOnly = true;
             // 
             // comboBox1
             // 
@@ -331,9 +433,14 @@ namespace HastaneOtomasyonu.FormUI
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.dateTimePicker2);
+            this.tabPage3.Controls.Add(this.cmbDoctor);
+            this.tabPage3.Controls.Add(this.cmbPoliclinic);
+            this.tabPage3.Controls.Add(this.cmbHospital);
+            this.tabPage3.Controls.Add(this.cmbCity);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(976, 429);
+            this.tabPage3.Size = new System.Drawing.Size(976, 147);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Randevu Bilgileri";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -364,101 +471,55 @@ namespace HastaneOtomasyonu.FormUI
             this.btnPatient.Text = "button2";
             this.btnPatient.UseVisualStyleBackColor = false;
             // 
-            // groupBox1
+            // cmbCity
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(125, 73);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(359, 252);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Aktif Randevular";
+            this.cmbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbCity.FormattingEnabled = true;
+            this.cmbCity.Location = new System.Drawing.Point(142, 24);
+            this.cmbCity.Name = "cmbCity";
+            this.cmbCity.Size = new System.Drawing.Size(121, 24);
+            this.cmbCity.TabIndex = 0;
+            this.cmbCity.SelectedIndexChanged += new System.EventHandler(this.cmbCity_SelectedIndexChanged);
             // 
-            // dataGridView1
+            // cmbHospital
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Poliklinik,
-            this.Doktor,
-            this.Tarih,
-            this.Saat});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(353, 233);
-            this.dataGridView1.TabIndex = 0;
+            this.cmbHospital.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbHospital.FormattingEnabled = true;
+            this.cmbHospital.Location = new System.Drawing.Point(269, 24);
+            this.cmbHospital.Name = "cmbHospital";
+            this.cmbHospital.Size = new System.Drawing.Size(525, 24);
+            this.cmbHospital.TabIndex = 1;
+            this.cmbHospital.SelectedIndexChanged += new System.EventHandler(this.cmbHospital_SelectedIndexChanged);
             // 
-            // Poliklinik
+            // cmbPoliclinic
             // 
-            this.Poliklinik.HeaderText = "Poliklinik";
-            this.Poliklinik.Name = "Poliklinik";
-            this.Poliklinik.ReadOnly = true;
+            this.cmbPoliclinic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbPoliclinic.FormattingEnabled = true;
+            this.cmbPoliclinic.Location = new System.Drawing.Point(142, 54);
+            this.cmbPoliclinic.Name = "cmbPoliclinic";
+            this.cmbPoliclinic.Size = new System.Drawing.Size(652, 24);
+            this.cmbPoliclinic.TabIndex = 2;
+            this.cmbPoliclinic.SelectedIndexChanged += new System.EventHandler(this.cmbPoliclinic_SelectedIndexChanged);
             // 
-            // Doktor
+            // cmbDoctor
             // 
-            this.Doktor.HeaderText = "Doktor";
-            this.Doktor.Name = "Doktor";
-            this.Doktor.ReadOnly = true;
+            this.cmbDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbDoctor.FormattingEnabled = true;
+            this.cmbDoctor.Location = new System.Drawing.Point(142, 84);
+            this.cmbDoctor.Name = "cmbDoctor";
+            this.cmbDoctor.Size = new System.Drawing.Size(652, 24);
+            this.cmbDoctor.TabIndex = 3;
+            this.cmbDoctor.SelectedIndexChanged += new System.EventHandler(this.cmbDoctor_SelectedIndexChanged);
             // 
-            // Tarih
+            // dateTimePicker2
             // 
-            this.Tarih.HeaderText = "Tarih";
-            this.Tarih.Name = "Tarih";
-            this.Tarih.ReadOnly = true;
-            // 
-            // Saat
-            // 
-            this.Saat.HeaderText = "Saat";
-            this.Saat.Name = "Saat";
-            this.Saat.ReadOnly = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 16);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(392, 233);
-            this.dataGridView2.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Poliklinik";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Doktor";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Tarih";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Saat";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dateTimePicker2.Location = new System.Drawing.Point(142, 114);
+            this.dateTimePicker2.MinDate = new System.DateTime(2021, 6, 19, 0, 0, 0, 0);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(652, 20);
+            this.dateTimePicker2.TabIndex = 4;
+            this.dateTimePicker2.Visible = false;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // Panel
             // 
@@ -478,12 +539,13 @@ namespace HastaneOtomasyonu.FormUI
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -528,5 +590,10 @@ namespace HastaneOtomasyonu.FormUI
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.ComboBox cmbPoliclinic;
+        private System.Windows.Forms.ComboBox cmbHospital;
+        private System.Windows.Forms.ComboBox cmbCity;
+        private System.Windows.Forms.ComboBox cmbDoctor;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
