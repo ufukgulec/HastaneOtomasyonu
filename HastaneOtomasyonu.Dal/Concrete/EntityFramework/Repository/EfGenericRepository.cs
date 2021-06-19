@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HastaneOtomasyonu.Dal.Concrete.EntityFramework.Context;
 using System.Data.Entity.Migrations;
 using System.Linq.Expressions;
 

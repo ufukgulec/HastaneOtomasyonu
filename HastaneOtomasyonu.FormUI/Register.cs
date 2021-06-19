@@ -127,14 +127,14 @@ namespace HastaneOtomasyonu.FormUI
 
         private void gönder_Click(object sender, EventArgs e)
         {
-            string passTc = txtTc.Text.Substring(0,6);
+            string passTc = txtTc.Text.Substring(0, 6);
 
             string gender = "";
             if (rbErkek.Checked)
             {
                 gender = "E";
             }
-            else if(rbKadın.Checked)
+            else if (rbKadın.Checked)
             {
                 gender = "K";
             }
@@ -147,15 +147,15 @@ namespace HastaneOtomasyonu.FormUI
             {
                 Patient patient = new Patient()
                 {
-                    name = txtIsım.Text,
-                    surname = txtSoyisim.Text,
-                    identificationnumber = txtTc.Text,
-                    phonenumber = txtTel.Text,
-                    dateofbirth = dateTimePicker1.Value,
-                    gender = gender,
-                    dateofregistration = DateTime.Now.Date,
-                    address = txtAdres.Text,
-                    password = "mhrs" + passTc // "mhrs402734"
+                    Name = txtIsım.Text,
+                    Surname = txtSoyisim.Text,
+                    IdentificationNumber = txtTc.Text,
+                    Phone = txtTel.Text,
+                    DateOfBirth = dateTimePicker1.Value,
+                    Gender = gender,
+                    DateOfRegistration = DateTime.Now.Date,
+                    CityId = int.Parse(txtAdres.Text),
+                    Password = "mhrs" + passTc // "mhrs402734"
 
                 };
                 PatientManager.Create(patient);
@@ -164,7 +164,7 @@ namespace HastaneOtomasyonu.FormUI
             {
                 Console.WriteLine(err.Message);
             }
-            
+
             this.Close(); //Register Form Kapanır
         }
     }

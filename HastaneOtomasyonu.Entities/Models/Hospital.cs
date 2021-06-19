@@ -12,22 +12,25 @@ namespace HastaneOtomasyonu.Entities.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Hospital()
         {
-            Policlinic = new HashSet<Policlinic>();
+            Doctors = new HashSet<Doctor>();
+            Policlinics = new HashSet<Policlinic>();
         }
 
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [StringLength(10)]
-        public string phonenumber { get; set; }
+        public string Phone { get; set; }
 
-        public int? cityid { get; set; }
+        public int CityId { get; set; }
 
         public virtual City City { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Policlinic> Policlinic { get; set; }
-        public virtual ICollection<Doctor> Doctor { get; set; }
+        public virtual ICollection<Doctor> Doctors { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Policlinic> Policlinics { get; set; }
     }
 }

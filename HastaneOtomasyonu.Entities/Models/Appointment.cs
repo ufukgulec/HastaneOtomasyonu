@@ -9,24 +9,26 @@ namespace HastaneOtomasyonu.Entities.Models
     [Table("Appointment")]
     public partial class Appointment
     {
-        public int id { get; set; }
+        public int ID { get; set; }
 
-        public int patientid { get; set; }
+        public int PatientId { get; set; }
 
-        public int doctorid { get; set; }
-        public int policlinicid { get; set; }
+        public int DoctorId { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime date { get; set; }
-
-        public TimeSpan? hour { get; set; }
+        public int PoliclinicId { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? currentdate { get; set; }
+        public DateTime Date { get; set; }
+
+        public TimeSpan Hour { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime CurrentDate { get; set; }
 
         public virtual Doctor Doctor { get; set; }
 
         public virtual Patient Patient { get; set; }
+
         public virtual Policlinic Policlinic { get; set; }
     }
 }

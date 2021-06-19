@@ -17,8 +17,8 @@ namespace HastaneOtomasyonu.Dal.Concrete.EntityFramework.Repository
 
         public Patient Login(string tc, string parola)
         {
-            var patient = _context.Patient.Where(x => x.identificationnumber == tc && x.password == parola).FirstOrDefault();
-            
+            var patient = _context.Patients.Where(x => x.IdentificationNumber == tc && x.Password == parola).FirstOrDefault();
+
             return patient;
         }
     }

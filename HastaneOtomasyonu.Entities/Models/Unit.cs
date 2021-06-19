@@ -6,26 +6,24 @@ namespace HastaneOtomasyonu.Entities.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Policlinic")]
-    public partial class Policlinic
+    [Table("Unit")]
+    public partial class Unit
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Policlinic()
+        public Unit()
         {
-            Appointments = new HashSet<Appointment>();
+            Doctors = new HashSet<Doctor>();
+            Policlinics = new HashSet<Policlinic>();
         }
 
         public int Id { get; set; }
 
-        public int HospitalId { get; set; }
-
-        public int UnitId { get; set; }
+        public string Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Appointment> Appointments { get; set; }
+        public virtual ICollection<Doctor> Doctors { get; set; }
 
-        public virtual Hospital Hospital { get; set; }
-
-        public virtual Unit Unit { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Policlinic> Policlinics { get; set; }
     }
 }

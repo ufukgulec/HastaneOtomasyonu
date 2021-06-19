@@ -29,14 +29,14 @@ namespace HastaneOtomasyonu.FormUI
 
         private void PatientInformationBind()
         {
-            btnPatient.Text = patient.name + " " + patient.surname;
-            txtisim.Text = patient.name;
-            txtsoyisim.Text = patient.surname;
-            txtadres.Text = patient.address;
-            txtTc.Text = patient.identificationnumber;
-            txtparola.Text = patient.password;
-            txttel.Text = patient.phonenumber;
-            dateTimePicker1.Value = (DateTime)patient.dateofbirth;
+            btnPatient.Text = patient.Name + " " + patient.Surname;
+            txtisim.Text = patient.Name;
+            txtsoyisim.Text = patient.Surname;
+            txtadres.Text = patient.City.Name;
+            txtTc.Text = patient.IdentificationNumber;
+            txtparola.Text = patient.Password;
+            txttel.Text = patient.Phone;
+            dateTimePicker1.Value = patient.DateOfBirth;
         }
 
         private void AppointmentBind()
@@ -44,14 +44,14 @@ namespace HastaneOtomasyonu.FormUI
             AppointmentManager appointmentManager = new AppointmentManager(new EfAppointmentRepository());
 
 
-            var list = appointmentManager.List();
+            var list = appointmentManager.List(x => x.PatientId == patient.Id);
             foreach (var item in list)
             {
-                string[] row = new string[] { item.Policlinic.name,
-                        item.Doctor.name,
-                        item.date.ToString("dd/MM/yyyy"),
-                        item.hour.ToString() };
-                if (item.date < DateTime.Now)
+                string[] row = new string[] { item.Policlinic.Unit.Name,
+                        item.Doctor.Name,
+                        item.Date.ToString("dd/MM/yyyy"),
+                        item.Hour.ToString() };
+                if (item.Date < DateTime.Now)
                 {
                     dataGridView2.Rows.Add(row);
                 }
@@ -67,7 +67,7 @@ namespace HastaneOtomasyonu.FormUI
             GenericManager<City> cityManager = new GenericManager<City>(new EfGenericRepository<City>());
             foreach (var item in cityManager.GetAll().ToList())
             {
-                comboBox1.Items.Add(item.name);
+                comboBox1.Items.Add(item.Name);
             }
         }
         private void button3_Click(object sender, EventArgs e)

@@ -12,37 +12,45 @@ namespace HastaneOtomasyonu.Entities.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Doctor()
         {
-            Appointment = new HashSet<Appointment>();
+            Appointments = new HashSet<Appointment>();
         }
 
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        public string name { get; set; }
+        [Required]
+        public string Name { get; set; }
 
-        public string surname { get; set; }
+        [Required]
+        public string Surname { get; set; }
 
+        [Required]
         [StringLength(11)]
-        public string identificationnumber { get; set; }
+        public string IdentificationNumber { get; set; }
 
+        [Required]
         [StringLength(10)]
-        public string phonenumber { get; set; }
+        public string Phone { get; set; }
 
+        [Required]
         [StringLength(1)]
-        public string gender { get; set; }
+        public string Gender { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? dateofregistration { get; set; }
+        public DateTime DateOfRegistration { get; set; }
 
+        [Required]
         [StringLength(10)]
-        public string password { get; set; }
+        public string Password { get; set; }
 
-        public int policlinicid { get; set; }
-        public int hospitalid { get; set; }
+        public int UnitId { get; set; }
+
+        public int HospitalId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Appointment> Appointment { get; set; }
+        public virtual ICollection<Appointment> Appointments { get; set; }
 
-        public virtual Policlinic Policlinic { get; set; }
         public virtual Hospital Hospital { get; set; }
+
+        public virtual Unit Unit { get; set; }
     }
 }

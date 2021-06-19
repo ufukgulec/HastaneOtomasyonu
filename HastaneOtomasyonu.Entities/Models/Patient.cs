@@ -12,38 +12,38 @@ namespace HastaneOtomasyonu.Entities.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Patient()
         {
-            Appointment = new HashSet<Appointment>();
+            Appointments = new HashSet<Appointment>();
         }
 
-        public int id { get; set; }
-        [Required]
-        public string name { get; set; }
-        [Required]
-        public string surname { get; set; }
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public string Surname { get; set; }
 
         [StringLength(11)]
-        [MinLength(11,ErrorMessage ="11 karakterden az giremizsiniz."), MaxLength(11, ErrorMessage = "11 karakterden fazla giremizsiniz.")]
-        public string identificationnumber { get; set; }
+        public string IdentificationNumber { get; set; }
 
-        public string address { get; set; }
+        public int CityId { get; set; }
 
         [StringLength(10)]
-        [MinLength(3), MaxLength(100)]
-        public string phonenumber { get; set; }
+        public string Phone { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? dateofbirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         [StringLength(1)]
-        public string gender { get; set; }
+        public string Gender { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? dateofregistration { get; set; }
+        public DateTime DateOfRegistration { get; set; }
 
         [StringLength(10)]
-        public string password { get; set; }
+        public string Password { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Appointment> Appointment { get; set; }
+        public virtual ICollection<Appointment> Appointments { get; set; }
+
+        public virtual City City { get; set; }
     }
 }
