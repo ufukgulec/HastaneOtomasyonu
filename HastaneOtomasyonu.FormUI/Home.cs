@@ -16,8 +16,6 @@ namespace HastaneOtomasyonu.FormUI
 {
     public partial class Home : Form
     {
-        GenericManager<Patient> patientService = new GenericManager<Patient>(new EfGenericRepository<Patient>());
-        PatientManager PatientManager = new PatientManager(new EfPatientRepository());
         public Home()
         {
             InitializeComponent();

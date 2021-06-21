@@ -1,4 +1,6 @@
 ﻿using HastaneOtomasyonu.Business;
+using HastaneOtomasyonu.Business.Abstract;
+using HastaneOtomasyonu.Dal.Abstract;
 using HastaneOtomasyonu.Dal.Concrete.EntityFramework.Repository;
 using HastaneOtomasyonu.Entities.Models;
 using System;
@@ -15,12 +17,13 @@ namespace HastaneOtomasyonu.FormUI
 {
     public partial class Panel : Form
     {
-        GenericManager<Hospital> hospitalManager = new GenericManager<Hospital>(new EfGenericRepository<Hospital>());
-        GenericManager<Policlinic> policlinicManager = new GenericManager<Policlinic>(new EfGenericRepository<Policlinic>());
-        GenericManager<Doctor> DoctorManager = new GenericManager<Doctor>(new EfGenericRepository<Doctor>());
-        AppointmentManager appointmentManager = new AppointmentManager(new EfAppointmentRepository());
-        PatientManager patientManager = new PatientManager(new EfPatientRepository());
+        IHospitalService hospitalService = new HospitalManager(new EfHospitalRepository());
+        IPoliclinicService policlinicService = new PoliclinicManager(new EfPoliclinicRepository());
+        IDoctorService doctorService = new DoctorManager(new EfDoctorRepository());
+        IAppointmentService appointmentService = new AppointmentManager(new EfAppointmentRepository());
+        IPatientService patientService = new PatientManager(new EfPatientRepository());
         GenericManager<City> cityManager = new GenericManager<City>(new EfGenericRepository<City>());
+
         public Patient patient;//Formlar Arası Nesne Çekmek İçin Kullanılır.(Login.Form>Panel.Form)
 
         Hospital CHospital;
@@ -60,7 +63,7 @@ namespace HastaneOtomasyonu.FormUI
         private void AppointmentBind()
         {
 
-            var list = appointmentManager.List(x => x.PatientId == patient.Id);
+            var list = appointmentService.List(x => x.PatientId == patient.Id);
             foreach (var item in list)
             {
                 string[] row = new string[] { item.Policlinic.Unit.Name,
@@ -104,11 +107,11 @@ namespace HastaneOtomasyonu.FormUI
             List<Hospital> list;
             if (i != null)
             {
-                list = hospitalManager.GetAll(x => x.CityId == i).ToList();
+                list = hospitalService.GetAll(x => x.CityId == i).ToList();
             }
             else
             {
-                list = hospitalManager.GetAll().ToList();
+                list = hospitalService.GetAll().ToList();
             }
 
             List<ComboBoxItem> combos = new List<ComboBoxItem>();
@@ -129,14 +132,14 @@ namespace HastaneOtomasyonu.FormUI
         {
             cmbPoliclinic.Enabled = true;
             ComboBoxItem cbi = (ComboBoxItem)cmbHospital.SelectedItem;
-            CHospital = hospitalManager.Get(cbi.Value);
+            CHospital = hospitalService.Get(cbi.Value);
 
             PoliclinicBind(CHospital.Id);
         }
 
         private void PoliclinicBind(int HospitalId)
         {
-            var list = policlinicManager.GetAll(x => x.HospitalId == HospitalId).ToList();
+            var list = policlinicService.GetAll(x => x.HospitalId == HospitalId).ToList();
 
             List<ComboBoxItem> combos = new List<ComboBoxItem>();
 
@@ -151,16 +154,16 @@ namespace HastaneOtomasyonu.FormUI
         {
             cmbDoctor.Enabled = true;
             ComboBoxItem cbi = (ComboBoxItem)cmbPoliclinic.SelectedItem;
-            CPoliclinic = policlinicManager.Get(cbi.Value);
+            CPoliclinic = policlinicService.Get(cbi.Value);
 
             DoctorBind(CPoliclinic.Id);
         }
 
         private void DoctorBind(int PoliclinicId)
         {
-            var pol = policlinicManager.Get(PoliclinicId);
+            var pol = policlinicService.Get(PoliclinicId);
 
-            var list = DoctorManager.GetAll(x => x.HospitalId == pol.HospitalId && x.UnitId == pol.UnitId);
+            var list = doctorService.GetAll(x => x.HospitalId == pol.HospitalId && x.UnitId == pol.UnitId);
 
             List<ComboBoxItem> combos = new List<ComboBoxItem>();
 
@@ -175,7 +178,7 @@ namespace HastaneOtomasyonu.FormUI
         {
             dateTimePicker2.Visible = true;
             ComboBoxItem cbi = (ComboBoxItem)cmbDoctor.SelectedItem;
-            CDoctor = DoctorManager.Get(cbi.Value);
+            CDoctor = doctorService.Get(cbi.Value);
 
             AppointmentHours(DateTime.Now, CDoctor.Id);
         }
@@ -187,7 +190,7 @@ namespace HastaneOtomasyonu.FormUI
         }
         private void AppointmentHours(DateTime dateTime, int doctorId)
         {
-            var list = appointmentManager.GetAll(x => x.Date == dateTime.Date && x.DoctorId == doctorId).ToList();
+            var list = appointmentService.GetAll(x => x.Date == dateTime.Date && x.DoctorId == doctorId).ToList();
             HoursButtons(list);
         }
 
@@ -254,8 +257,9 @@ namespace HastaneOtomasyonu.FormUI
                     Hour = TimeSpan.Parse(current.Text),
                     Date = dateTimePicker2.Value
                 };
-                appointmentManager.Create(appointment);
+                appointmentService.Create(appointment);
                 AppointmentHours(dateTimePicker2.Value, CDoctor.Id);
+                AppointmentBind();
             }
             else
             {
@@ -272,8 +276,8 @@ namespace HastaneOtomasyonu.FormUI
             {
                 button4.BackColor = Color.Green;
                 patient.Password = txtparola.Text;
-                patientManager.Update(patient);
-
+                patientService.Update(patient);
+                button4.Text = "Parola Değiştir";
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using HastaneOtomasyonu.Business;
+using HastaneOtomasyonu.Business.Abstract;
 using HastaneOtomasyonu.Dal.Concrete.EntityFramework.Repository;
 using HastaneOtomasyonu.Entities.Models;
 using System;
@@ -15,8 +16,8 @@ namespace HastaneOtomasyonu.FormUI
 {
     public partial class Register : Form
     {
-        PatientManager PatientManager = new PatientManager(new EfPatientRepository());
-        GenericManager<City> cityManager = new GenericManager<City>(new EfGenericRepository<City>());
+        IPatientService patientService = new PatientManager(new EfPatientRepository());
+        IGenericService<City> cityService = new GenericManager<City>(new EfGenericRepository<City>());
         public Register()
         {
             InitializeComponent();
@@ -105,7 +106,7 @@ namespace HastaneOtomasyonu.FormUI
             txtTel.ForeColor = Color.Gray;
             this.ActiveControl = gönder;
             #endregion
-            var list = cityManager.GetAll().ToList();
+            var list = cityService.GetAll().ToList();
             foreach (var item in list)
             {
                 comboBox1.Items.Add(item.Name);
@@ -142,13 +143,13 @@ namespace HastaneOtomasyonu.FormUI
                     DateOfBirth = dateTimePicker1.Value,
                     Gender = gender,
                     DateOfRegistration = DateTime.Now.Date,
-                    CityId = comboBox1.SelectedIndex+1,
+                    CityId = comboBox1.SelectedIndex + 1,
                     Password = "mhrs" + passTc // "mhrs402734"
 
                 };
-                PatientManager.Create(patient);
+                patientService.Create(patient);
                 Login login = new Login();
-                MessageBox.Show(string.Format("{0} {1} şifreniz {2}", patient.Name, patient.Surname, patient.Password));
+                MessageBox.Show(string.Format("{0} {1} şifreniz {2} \n Değiştirmek için Hesap Bilgilerinize giriniz...", patient.Name, patient.Surname, patient.Password));
                 login.sign(patient.IdentificationNumber, patient.Password);
 
             }

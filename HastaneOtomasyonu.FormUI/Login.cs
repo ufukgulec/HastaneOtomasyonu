@@ -1,4 +1,5 @@
 ﻿using HastaneOtomasyonu.Business;
+using HastaneOtomasyonu.Business.Abstract;
 using HastaneOtomasyonu.Dal.Abstract;
 using HastaneOtomasyonu.Dal.Concrete.EntityFramework.Repository;
 using System;
@@ -15,7 +16,7 @@ namespace HastaneOtomasyonu.FormUI
 {
     public partial class Login : Form
     {
-        PatientManager patientManager = new PatientManager(new EfPatientRepository());
+        IPatientService patientService = new PatientManager(new EfPatientRepository());
         public Login()
         {
             InitializeComponent();
@@ -46,8 +47,6 @@ namespace HastaneOtomasyonu.FormUI
                 tcNo.ForeColor = Color.Gray;
             }
         }
-
-
 
         private void parola_Enter(object sender, EventArgs e)
         {
@@ -84,7 +83,7 @@ namespace HastaneOtomasyonu.FormUI
         }
         public void sign(string TcNo, string Password)
         {
-            var patient = patientManager.Login(TcNo, Password);
+            var patient = patientService.Login(TcNo, Password);
             if (patient != null)
             {
                 Panel panel = new Panel()

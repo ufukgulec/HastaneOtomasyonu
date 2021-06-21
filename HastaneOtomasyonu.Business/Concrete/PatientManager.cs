@@ -1,4 +1,5 @@
-﻿using HastaneOtomasyonu.Dal.Abstract;
+﻿using HastaneOtomasyonu.Business.Abstract;
+using HastaneOtomasyonu.Dal.Abstract;
 using HastaneOtomasyonu.Entities.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HastaneOtomasyonu.Business
 {
-    public class PatientManager : GenericManager<Patient>
+    public class PatientManager : GenericManager<Patient>, IPatientService
     {
         IPatientRepository _patientRepository;
 

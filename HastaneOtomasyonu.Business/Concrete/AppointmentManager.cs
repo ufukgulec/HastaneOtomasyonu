@@ -1,4 +1,5 @@
-﻿using HastaneOtomasyonu.Dal.Abstract;
+﻿using HastaneOtomasyonu.Business.Abstract;
+using HastaneOtomasyonu.Dal.Abstract;
 using HastaneOtomasyonu.Entities.Models;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HastaneOtomasyonu.Business
 {
-    public class AppointmentManager : GenericManager<Appointment>
+    public class AppointmentManager : GenericManager<Appointment>, IAppointmentService
     {
         IAppointmentRepository _appointmentRepository;
         public AppointmentManager(IAppointmentRepository appointmentRepository) : base(appointmentRepository)

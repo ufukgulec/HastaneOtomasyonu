@@ -1,4 +1,5 @@
-﻿using HastaneOtomasyonu.Dal.Abstract;
+﻿using HastaneOtomasyonu.Business.Abstract;
+using HastaneOtomasyonu.Dal.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HastaneOtomasyonu.Business
 {
-    public class GenericManager<T>
+    public class GenericManager<T> : IGenericService<T> where T : class
     {
         private readonly IGenericRepository<T> genericRepository;
 
@@ -42,7 +43,7 @@ namespace HastaneOtomasyonu.Business
         {
             return genericRepository.GetAll();
         }
-        public IQueryable<T> GetAll(Expression <Func<T,bool>> expression)
+        public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
         {
             return genericRepository.GetAll(expression);
         }
