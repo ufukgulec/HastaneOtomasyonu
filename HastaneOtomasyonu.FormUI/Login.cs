@@ -16,6 +16,7 @@ namespace HastaneOtomasyonu.FormUI
 {
     public partial class Login : Form
     {
+        public Form FForm;
         IPatientService patientService = new PatientManager(new EfPatientRepository());
         public Login()
         {
@@ -88,7 +89,8 @@ namespace HastaneOtomasyonu.FormUI
             {
                 Panel panel = new Panel()
                 {
-                    patient = patient
+                    patient = patient,
+                    FForm=this
                 };
                 this.Hide();
                 panel.ShowDialog();
@@ -98,6 +100,13 @@ namespace HastaneOtomasyonu.FormUI
             {
                 MessageBox.Show("Hatalı Tc veya Şifre");
             }
+        }
+
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+            FForm.Show();
+
         }
     }
 }

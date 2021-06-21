@@ -76,6 +76,7 @@ namespace HastaneOtomasyonu.FormUI
             this.cmbCity = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnPatient = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -245,6 +246,7 @@ namespace HastaneOtomasyonu.FormUI
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnSubmit);
             this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.button4);
@@ -574,6 +576,21 @@ namespace HastaneOtomasyonu.FormUI
             this.btnPatient.Text = "button2";
             this.btnPatient.UseVisualStyleBackColor = false;
             // 
+            // btnSubmit
+            // 
+            this.btnSubmit.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSubmit.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSubmit.ForeColor = System.Drawing.Color.Black;
+            this.btnSubmit.Location = new System.Drawing.Point(639, 329);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(127, 37);
+            this.btnSubmit.TabIndex = 17;
+            this.btnSubmit.Text = "Onayla";
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Visible = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
             // Panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -587,6 +604,7 @@ namespace HastaneOtomasyonu.FormUI
             this.Name = "Panel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kullanıcı Paneli";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Panel_FormClosed);
             this.Load += new System.EventHandler(this.Panel_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -651,5 +669,6 @@ namespace HastaneOtomasyonu.FormUI
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnSubmit;
     }
 }

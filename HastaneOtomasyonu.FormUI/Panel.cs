@@ -23,7 +23,7 @@ namespace HastaneOtomasyonu.FormUI
         IAppointmentService appointmentService = new AppointmentManager(new EfAppointmentRepository());
         IPatientService patientService = new PatientManager(new EfPatientRepository());
         GenericManager<City> cityManager = new GenericManager<City>(new EfGenericRepository<City>());
-
+        public Form FForm;
         public Patient patient;//Formlar Arası Nesne Çekmek İçin Kullanılır.(Login.Form>Panel.Form)
 
         Hospital CHospital;
@@ -93,6 +93,7 @@ namespace HastaneOtomasyonu.FormUI
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+            FForm.Show();
         }
 
         private void cmbCity_SelectedIndexChanged(object sender, EventArgs e)
@@ -269,16 +270,34 @@ namespace HastaneOtomasyonu.FormUI
 
         private void button4_Click(object sender, EventArgs e)
         {
+            btnSubmit.Visible = true;
+            button4.Visible = false;
             txtparola.Enabled = true;
-            button4.Text = "Onayla";
-            button4.BackColor = Color.Red;
-            if (button4.Text.Contains("Onayla"))
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            string message = String.Format("{0} {1} Şifre Değişikliğini onaylıyor musunuz ?"
+                , patient.Name, patient.Surname);
+            string title = "Şifre Değişikliği";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
             {
-                button4.BackColor = Color.Green;
                 patient.Password = txtparola.Text;
                 patientService.Update(patient);
-                button4.Text = "Parola Değiştir";
+                PatientInformationBind();
+                btnSubmit.Visible = false;
+                button4.Visible = true;
+                txtparola.Enabled = false;
             }
+        }
+
+        private void Panel_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+            FForm.Show();
         }
     }
 }
+
