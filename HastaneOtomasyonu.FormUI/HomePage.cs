@@ -28,5 +28,15 @@ namespace HastaneOtomasyonu.FormUI
         {
 
         }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            LoginPage loginPage = new LoginPage()
+            {
+                form = this
+            };
+            this.Hide();
+            loginPage.Show();
+        }
     }
 }

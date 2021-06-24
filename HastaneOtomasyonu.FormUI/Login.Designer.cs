@@ -67,6 +67,7 @@ namespace HastaneOtomasyonu.FormUI
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(584, 0);
             this.panel2.Name = "panel2";
