@@ -160,7 +160,6 @@ namespace HastaneOtomasyonu.FormUI
             this.materialLabel1.Size = new System.Drawing.Size(129, 19);
             this.materialLabel1.TabIndex = 8;
             this.materialLabel1.Text = "Şifremi Unuttum ?";
-            this.materialLabel1.Click += new System.EventHandler(this.materialLabel1_Click);
             // 
             // LoginPage
             // 

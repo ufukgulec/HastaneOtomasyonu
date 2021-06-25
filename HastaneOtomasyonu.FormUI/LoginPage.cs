@@ -34,10 +34,6 @@ namespace HastaneOtomasyonu.FormUI
         }
 
 
-        private void materialLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnRegis_Click(object sender, EventArgs e)
         {
@@ -60,10 +56,10 @@ namespace HastaneOtomasyonu.FormUI
             var patient = patientService.Login(Id, Password);
             if (patient != null)
             {
-                Panel panel = new Panel()
+                PanelPage panel = new PanelPage()
                 {
                     patient = patient,
-                    FForm = this
+                    form = this
                 };
                 this.Hide();
                 panel.ShowDialog();

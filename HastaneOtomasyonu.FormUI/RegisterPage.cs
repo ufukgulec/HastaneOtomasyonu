@@ -86,5 +86,10 @@ namespace HastaneOtomasyonu.FormUI
                 Console.WriteLine(err.Message);
             }
         }
+
+        private void RegisterPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            form.Show();
+        }
     }
 }

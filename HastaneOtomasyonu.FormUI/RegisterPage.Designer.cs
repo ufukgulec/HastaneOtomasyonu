@@ -271,6 +271,7 @@ namespace HastaneOtomasyonu.FormUI
             this.Name = "RegisterPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kayıt Sayfası";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterPage_FormClosed);
             this.Load += new System.EventHandler(this.RegisterPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
