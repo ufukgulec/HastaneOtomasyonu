@@ -234,12 +234,12 @@ namespace HastaneOtomasyonu.FormUI
         {
             Button current = (Button)sender;
             string message = String.Format(
-                "RANDEVUNUZ \n" + "Poliklinik: {0}\n" + "Doktor: {1} {2}\n" + "Saat: {3}\n" + "Adınız Soyadınız: {4} {5}" + " onaylıyorsanız Evet'e basınız."
-                , CPoliclinic.Unit.Name, CDoctor.Name, CDoctor.Surname, current.Text, patient.Name, patient.Surname
+                "RANDEVUNUZ \n" + "Hastane:{6}\nPoliklinik: {0}\nDoktor: {1} {2}\nSaat: {3}\nAdınız Soyadınız: {4} {5}" + " onaylıyorsanız Evet'e basınız."
+                , CPoliclinic.Unit.Name, CDoctor.Name, CDoctor.Surname, current.Text, patient.Name, patient.Surname, CHospital.Name
                 );
             string title = "Randevu Kontrol";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons);
+            DialogResult result = MaterialMessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
                 Appointment appointment = new Appointment
@@ -288,11 +288,11 @@ namespace HastaneOtomasyonu.FormUI
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string message = String.Format("{0} {1} Şifre Değişikliğini onaylıyor musunuz ?"
+            string message = String.Format("{0} {1}\n Şifre Değişikliğini onaylıyor musunuz ?"
                 , patient.Name, patient.Surname);
             string title = "Şifre Değişikliği";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons);
+            DialogResult result = MaterialMessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
                 patient.Password = txtPassword.Text;
@@ -303,6 +303,7 @@ namespace HastaneOtomasyonu.FormUI
                 txtPassword.Password = true;
                 txtPassword.Enabled = false;
             }
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

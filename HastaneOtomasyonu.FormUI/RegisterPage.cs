@@ -36,6 +36,11 @@ namespace HastaneOtomasyonu.FormUI
         private void RegisterPage_Load(object sender, EventArgs e)
         {
             form.Hide();
+            var list = cityService.GetAll().ToList();
+            foreach (var item in list)
+            {
+                cmbCity.Items.Add(item.Name);
+            }
         }
 
         private void materialButton1_Click(object sender, EventArgs e)
@@ -76,8 +81,8 @@ namespace HastaneOtomasyonu.FormUI
 
                 };
                 patientService.Create(patient);
-                Login login = new Login();
-                MessageBox.Show(string.Format("{0} {1} şifreniz {2} \n Değiştirmek için Hesap Bilgilerinize giriniz...", patient.Name, patient.Surname, patient.Password));
+                LoginPage login = new LoginPage();
+                MaterialMessageBox.Show(string.Format("{0} {1} şifreniz {2} \n Değiştirmek için Hesap Bilgilerinize giriniz...", patient.Name, patient.Surname, patient.Password), "İlk Giriş", MessageBoxButtons.YesNo);
                 login.sign(patient.IdentificationNumber, patient.Password);
 
             }

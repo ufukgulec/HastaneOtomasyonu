@@ -41,8 +41,9 @@ namespace HastaneOtomasyonu.FormUI
             {
                 form = form
             };
-            this.Close();
+
             registerPage.Show();
+            this.Close();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
